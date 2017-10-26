@@ -1,0 +1,24 @@
+object Reverse {
+def main (args: Array[String]){
+println("Enter the numbers in Array:");
+
+val input = Array(2,3,-3,4,-2);
+val len:Int = input.length;
+var res:Array[Int] = new Array[Int](len-1);
+    for(i <- 0 to len-2){
+        res(i) = input(i)*input(i+1);
+   }
+
+var max = res(0);
+for(i <- 1 to len-2){
+if(res(i) > max) max = res(i);
+}
+println("Max is" + max);
+/*for(i<- 0 to len-2) {
+if(res(i)>res(i+1)){
+var c:Int = res(i);
+res(i) =res(i+1);
+res(i+1) = c;
+}}
+for (i<-0 to len-2) println(res(i));*/
+}}

@@ -1,0 +1,79 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "clusterName": {
+            "value": "simahbasedevcluster"
+        },
+        "clusterLoginUserName": {
+            "value": "admin"
+        },
+        "clusterLoginPassword": {
+             "reference": {
+              "keyVault": {
+                "id": "/subscriptions/939fd9d0-6b53-45cd-8946-75d1d625c318/resourceGroups/RG_SIMA/providers/Microsoft.KeyVault/vaults/simakeyvault1"
+              },
+              "secretName": "HDIHBaseClusterPassword"
+            }
+        },
+        "location": {
+            "value": "centralus"
+        },
+        "clusterWorkerNodeCount": {
+            "value": 3
+        },
+        "clusterKind": {
+            "value": "HBASE"
+        },
+        "clusterVersion": {
+            "value": "3.6"
+        },
+		"storageaccountname": {
+		    "value": "simahbaseclusterstorage.blob.core.windows.net"
+		},
+        "storagecontainername": {
+		    "value": "simahbasedevcluster-2017-12-27t20-00-18-682z"
+		},		
+		"storageaccount": {
+		    "value": "simahbaseclusterstorage"
+		},
+        "storageaccounttype": {
+		    "value": "Microsoft.Storage/storageAccounts/"
+		},		
+        "sshUserName": {
+            "value": "sshuser"
+        },
+        "sshPassword": {
+             "reference": {
+              "keyVault": {
+                "id": "/subscriptions/939fd9d0-6b53-45cd-8946-75d1d625c318/resourceGroups/RG_SIMA/providers/Microsoft.KeyVault/vaults/simakeyvault1"
+              },
+              "secretName": "HDIHBaseClusterSSHPassword"
+            }
+        },
+		"vnetsubid": {
+		    "value": "939fd9d0-6b53-45cd-8946-75d1d625c318",
+			"metadata": {
+			    "description": "The subscription id where vnet is deployed."
+			}
+        },
+		"vnetresourcegroup": {
+		    "value": "RG_EntNetwork",
+			"metadata": {
+			    "description": "The resource group for vnet."
+			}
+        },
+        "vnetname": {
+		    "value": "VN_Prod_cus",
+			"metadata": {
+			    "description": "The name of the vnet."
+			}
+        },
+        "vnetsubnetname": {
+		    "value": "default",
+			"metadata": {
+			    "description": "The name of the custom subnet."
+			}
+        }		
+    }
+}
